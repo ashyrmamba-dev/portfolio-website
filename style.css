@@ -1,0 +1,292 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+:root {
+  --bg: #04040d;
+  --text: #ececff;
+  --accent: #7b2cff;
+  --card: rgba(255,255,255,0.05);
+}
+
+#theme-toggle:checked ~ * {
+  --bg: #f4f4ff;
+  --text: #111;
+  --card: rgba(0,0,0,0.05);
+}
+
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.4s;
+}
+
+
+.header {
+  position: fixed;
+  width: 100%;
+  padding: 18px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.nav a {
+  margin: 0 14px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+.theme-btn {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+}
+
+.hero-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+  padding: 20px;
+}
+
+.hero-text {
+  text-align: left;
+}
+
+.name-pill {
+  display: inline-block;
+  padding: 10px 26px;
+  margin-bottom: 24px;
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(123,44,255,0.15);
+  box-shadow: 0 0 20px rgba(123,44,255,0.6);
+}
+
+.hero h1 {
+  font-size: 48px;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.hero p {
+  margin: 20px 0 36px;
+  opacity: 0.85;
+}
+
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 300px;
+  border-radius: 50%;
+  filter: grayscale(100%) contrast(1.1);
+  box-shadow: 0 0 30px rgba(123,44,255,0.5);
+  transition: 0.4s;
+}
+
+.hero-image img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+  box-shadow: 0 0 45px rgba(123,44,255,0.9);
+}
+
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  padding: 14px 34px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.primary {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 0 20px rgba(123,44,255,0.7);
+}
+
+.primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(123,44,255,1);
+}
+
+.ghost {
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+.ghost:hover {
+  background: rgba(123,44,255,0.15);
+}
+
+
+.section {
+  padding: 100px 20px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: var(--accent);
+}
+
+
+.skills {
+  max-width: 600px;
+  margin: auto;
+}
+
+.skill {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.bar {
+  height: 8px;
+  background: #222;
+  border-radius: 20px;
+}
+
+.bar div {
+  height: 100%;
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(123,44,255,0.6);
+}
+
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--card);
+}
+
+.project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+  filter: brightness(0.6);
+}
+
+.project-info {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.project-card:hover .project-info {
+  opacity: 1;
+}
+
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.links a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: var(--accent);
+}
+
+.footer {
+  padding: 30px;
+  text-align: center;
+  opacity: 0.6;
+}
+
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: reveal 1s forwards;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+}
